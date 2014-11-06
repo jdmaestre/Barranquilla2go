@@ -18,7 +18,8 @@
         android:textColor="@android:color/darker_gray"
         android:layout_below="@+id/subtitle"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:inputType="text"/>
     <requestFocus/>
 
     <EditText

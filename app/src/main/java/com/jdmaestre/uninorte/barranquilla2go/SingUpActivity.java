@@ -3,13 +3,16 @@ package com.jdmaestre.uninorte.barranquilla2go;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -50,6 +53,7 @@ public class SingUpActivity extends Activity {
         mSingUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String username = mUserName.getText().toString();
                 String password = mPassword.getText().toString();
                 String email = mEmail.getText().toString();
@@ -98,6 +102,29 @@ public class SingUpActivity extends Activity {
 
                 }
 
+                InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
+            }
+        });
+
+        // Clearfocus cuando se toca la pantalla
+        findViewById(android.R.id.content).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (mUserName.isFocused() || mPassword.isFocused() || mEmail.isFocused()){
+                    if(motionEvent.getY() >= 72){
+
+                        mUserName.clearFocus();
+                        mPassword.clearFocus();
+                        mEmail.clearFocus();
+
+                        InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                    }
+
+                }
+                return false;
             }
         });
     }
@@ -106,7 +133,7 @@ public class SingUpActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.sing_up, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
