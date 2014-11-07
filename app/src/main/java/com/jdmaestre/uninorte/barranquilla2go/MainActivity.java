@@ -32,6 +32,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser == null){
             navigateToLogin();
