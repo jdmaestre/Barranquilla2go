@@ -8,10 +8,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -47,6 +49,21 @@ public class RestauranteMenuFragment extends Fragment {
         mlistAdapter = new ExpandableListAdapter(getActivity(), mlistDataHeader, mlistDataChild);
         // setting list adapter
         mexpListView.setAdapter(mlistAdapter);
+
+       mexpListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+           @Override
+           public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i2, long l) {
+               Toast.makeText(
+                       getActivity(),
+                       mlistDataHeader.get(i)
+                               + " : "
+                               + mlistDataChild.get(
+                               mlistDataHeader.get(i)).get(
+                               i2), Toast.LENGTH_SHORT)
+                       .show();
+               return false;
+           }
+       });
 
     }
 
