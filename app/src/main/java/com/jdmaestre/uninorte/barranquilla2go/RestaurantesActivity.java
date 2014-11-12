@@ -1,5 +1,8 @@
 package com.jdmaestre.uninorte.barranquilla2go;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 
 import android.app.Activity;
@@ -13,8 +16,7 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.parse.ParseUser;
+import android.widget.ExpandableListView;
 
 
 public class RestaurantesActivity extends Activity implements ActionBar.TabListener  {
@@ -72,7 +74,13 @@ public class RestaurantesActivity extends Activity implements ActionBar.TabListe
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
                             .setTabListener(this));
         }
+
+
+
+
     }
+
+
 
 
     @Override
@@ -130,10 +138,15 @@ public class RestaurantesActivity extends Activity implements ActionBar.TabListe
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position) {
                 case 0:
-                    return new RestauranteHomeFragment();
+                    return new RestauranteMenuFragment();
+                case 1:
+                    return new RestaurantePedidosFragment();
+                case 2:
+                    return new RestauranteSucursalesFragment();
             }
 
-            return new RestauranteHomeFragment();
+            return null;
+
         }
 
         @Override

@@ -12,6 +12,8 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.parse.ParseUser;
 
@@ -76,6 +78,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
                             .setTabListener(this));
         }
+
+
     }
 
     private void navigateToLogin() {
@@ -143,7 +147,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
                     return new MainListFragment ();
             }
 
-            return new RestauranteHomeFragment();
+            return new MainHomeFragment();
         }
 
         @Override

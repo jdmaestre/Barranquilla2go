@@ -9,12 +9,20 @@ import android.view.ViewGroup;
 /**
  * Created by Jose on 05/11/2014.
  */
-public class RestauranteHomeFragment extends Fragment {
+public class RestauranteSucursalesFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_restaurantes, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_sucursales_restaurantes, container, false);
         return rootView;
     }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+
+    }
+
 }
