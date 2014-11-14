@@ -20,8 +20,8 @@ import com.parse.ParseUser;
 import java.util.Locale;
 
 
-public class MainActivity extends Activity implements ActionBar.TabListener {
-    SectionsPagerAdapter mSectionsPagerAdapter;
+public class MainActivity extends Activity implements ActionBar.TabListener  {
+    SectionsPagerAdapter mSectionsPagerAdapter ;
 
     public static final String TAG = MainActivity.class.getSimpleName();
     /**
